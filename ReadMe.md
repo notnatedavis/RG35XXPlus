@@ -52,7 +52,7 @@ Guide prerequisites :
 
 ### 1. – Download Garlic OS
 
-Go to the [official Garlic OS release page](https://www.patreon.com/posts/garlic-os-2-0-87842418) (or the mirror in this repo’s `releases/` folder) and download the `.img` file for the **RG35XX+** (not the original RG35XX)
+- Open (Garlic OS)[https://github.com/GarlicOS/bootloader_anbernic_rg35xxplus] Repo
 
 ### 2. – Flash the OS to the SD card
 
@@ -74,7 +74,7 @@ Go to the [official Garlic OS release page](https://www.patreon.com/posts/garlic
 
 The SD card will now have a Roms partition. Your computer should see it automatically, take ejected sd card and open, 
 
-1. Copy ROMs into corresponding folders :
+1. Copy ROMs from local computer into corresponding folders in sd :
 ```bash
 └── Roms/
     ├── GB/  # game boy
