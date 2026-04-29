@@ -53,12 +53,13 @@ Guide prerequisites :
 ### 1. – Download Garlic OS
 
 - Open (Garlic OS)[https://github.com/GarlicOS/bootloader_anbernic_rg35xxplus] Repo
+- download RG35XX+ (img)[https://drive.google.com/drive/folders/1LUFdm1ZXKbWIVGd2G4Qd5Pa6CA-peUdx] very large file
 
 ### 2. – Flash the OS to the SD card
 
-**(Balena Etcher – easy)**
-1. Insert the SD card into your computer
-2. Open Balena Etcher → select the `.img` file → select the SD card → **Flash**
+**in Balena Etcher (mac) or Rufus (win)**
+1. Insert the SD card into reader / computer
+2. Open → select the `.img` file → select the SD card → **Flash**
 3. Wait for validation
 
 ### 3. – First boot & initial configuration
