@@ -52,8 +52,8 @@ Guide prerequisites :
 
 ### 1. – Download Garlic OS
 
-- Open (Garlic OS)[https://github.com/GarlicOS/bootloader_anbernic_rg35xxplus] Repo
-- download RG35XX+ (img)[https://drive.google.com/drive/folders/1LUFdm1ZXKbWIVGd2G4Qd5Pa6CA-peUdx] very large file
+- Open [Garlic OS](https://github.com/GarlicOS/bootloader_anbernic_rg35xxplus) Repo
+- download RG35XX+ [img](https://drive.google.com/drive/folders/1LUFdm1ZXKbWIVGd2G4Qd5Pa6CA-peUdx) very large file
 
 ### 2. – Flash the OS to the SD card
 
