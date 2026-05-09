@@ -68,8 +68,19 @@ Guide prerequisites :
 2. move both files in 1.required_files to NO NAME/ 
 3. Eject sd card
 
-### 4. – First boot & initial configuration
+### 4. - GParted Live iso USB resizing
+**plug in USB with iso and boot into**
+1. Load open gparted desktop
+2. Plug in sd card
+3. Unmount
+4. Eject
 
+### 5. - Garlic OS on TF2 (second sd card)
+****
+1. 
+
+### 6. – First boot & initial configuration
+**load into **
 1. Insert the flashed SD card into RG35XX+
 2. Power on – first boot takes 2‑3 minutes
 3. Follow on‑screen language and setup
@@ -77,7 +88,7 @@ Guide prerequisites :
 5. Tweak Settings ?
 6. Eject card when finished
 
-### 5. – Add ROMs & BIOS files
+### 7. – Add ROMs & BIOS files
 
 The SD card will now have a Roms partition. Your computer should see it automatically, take ejected sd card and open, 
 
