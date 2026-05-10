@@ -92,7 +92,8 @@ Guide prerequisites :
 1. `diskutil list` & `diskutil unmountDisk diskX`
 2. `sudo diskutil eraseDisk ExFAT "TF2" GPT diskX`
 3. Mount & Check with (`diskutil mountDisk diskX` and `diskutil list diskX`)
-4. create a folder in `TF2` called boot , in there paste 
+4. create a folder in `TF2` called boot , in there paste the `init.sh` script
+5. also required in the boot/ folder is `rootfs` file (note I used [aarch64-rootfs.7z](https://github.com/GarlicOS/buildroot/releases/tag/v2.0.2) under Assets/ )
 
 ### 6. – First boot & initial configuration
 
