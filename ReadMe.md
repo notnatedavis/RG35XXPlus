@@ -62,25 +62,41 @@ Guide prerequisites :
 2. Open → select the `.img` file → select the SD card → **Flash**
 3. Wait for validation
 
-### 3. – Required files transfer
-**download 1.required_files**
-1. Open created sd partition 'NO NAME/' 
-2. move both files in 1.required_files to NO NAME/ 
-3. Eject sd card
+### 3. - sd card resizing
 
-### 4. - GParted Live iso USB resizing
-**plug in USB with iso and boot into**
-1. Load open gparted desktop
-2. Plug in sd card
-3. Unmount
-4. Eject
+**might have to eject and reinsert**
+1. `disk util list` to look for `Volumn`and another
+2. Unmount `diskutil unmountDisk diskX` and if needed `sudo diskutil eject diskX`
+3. `diskutil mountDisk diskX`
+4. `sudo gdisk /dev/rdiskX`
+- p
+- d -> 7
+- n -> 7
+- p
+- w -> y
+5. Unmount `diskutil unmountDisk diskX`
+6. Eject sd card when done (if needed `sudo diskutil eject diskX`)
+7. Mount & Check with (`diskutil mountDisk diskX` and `diskutil list diskX`)
+8. Format enlarged partition as ExFAT `diskutil eraseVolume ExFAT "TF1" diskXs7`
+
+### 4. – TF1 bootloader files transfer
+
+**download 1.TF1bootloader**
+1. Open sd partition thats `NOT` `Volumn` but the other/
+2. move both files in `1.TF1bootloader` to `other/`
+3. Eject sd card when done (if needed `sudo diskutil eject diskX`)
 
 ### 5. - Garlic OS on TF2 (second sd card)
-****
-1. 
+
+**need to prevalidate TF2 format**
+1. `diskutil list` & `diskutil unmountDisk diskX`
+2. `sudo diskutil eraseDisk ExFAT "TF2" GPT diskX`
+3. Mount & Check with (`diskutil mountDisk diskX` and `diskutil list diskX`)
+4. create a folder in `TF2` called boot , in there paste 
 
 ### 6. – First boot & initial configuration
-**load into **
+
+**load into**
 1. Insert the flashed SD card into RG35XX+
 2. Power on – first boot takes 2‑3 minutes
 3. Follow on‑screen language and setup
@@ -107,22 +123,13 @@ The SD card will now have a Roms partition. Your computer should see it automati
 
 ```bash
 RG35XXPlus/
-├── ReadMe.md                    # Full guide (setup, backups, reset)
-├── scripts/
-│   ├── 01_flash_garlic.sh       # Flashes Garlic OS .img to SD card
-│   ├── 02_first_boot_helper.sh  # Creates ROM folders, sets defaults
-│   ├── 03_backup_saves.sh       # Backs up .srm and .state files to directory
-│   ├── 04_restore_saves.sh      # Restores from backup (inject into sd)
-│   ├── 05_maintenance.sh        # Clean states, battery check, update
-│   └── 06_full_wipe.sh          # Securely erases SD card partitions + whole preformat process
-├── configs/
-│   ├── retroarch.cfg.optimized  # Pre‑tweaked config (latency, hotkeys, all)
-│   └── themes/                  # Example theme files (optional)
-├── tools/
-│   └── sd_card_identifier.sh    # Shows /dev/sdX safely (Linux/macOS)
-└── docs/
-    ├── troubleshooting.md
-    └── bios_checksums.txt
+├── 1.TF1bootloader
+│   ├── device-resources/ # bootloader
+│   └── dmenu.bin         # bootloader
+├── 2.TF2init
+│   └── init.sh # Garlic OS init script
+├── .gitignore
+└── ReadMe.md             # You are here (hi!)
 ```
 
 ## Usage 
