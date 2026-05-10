@@ -50,19 +50,19 @@ Guide prerequisites :
 
 >  **Warning** – Flashing Garlic OS will erase **everything** on the target microSD card. Backup any existing data first or else
 
-### 1. – Download Garlic OS
+### 1. – Download Stock OS
 
 - Have this repo accessible for files
 - download stock RG35XX+ [img](https://drive.google.com/drive/folders/1LUFdm1ZXKbWIVGd2G4Qd5Pa6CA-peUdx) very large file
 
-### 2. – Flash the stock OS to the SD card
+### 2. – Flash the stock OS to the sd card (TF1)
 
 **in Balena Etcher (mac) or Rufus (win)**
 1. Insert the SD card into reader / computer
 2. Open → select the `.img` file → select the SD card → **Flash**
 3. Wait for validation
 
-### 3. - sd card resizing
+### 3. - TF1 sd card resizing
 
 **might have to eject and reinsert**
 1. `disk util list` to look for `Volumn`and another
@@ -93,7 +93,8 @@ Guide prerequisites :
 2. `sudo diskutil eraseDisk ExFAT "TF2" GPT diskX`
 3. Mount & Check with (`diskutil mountDisk diskX` and `diskutil list diskX`)
 4. create a folder in `TF2` called boot , in there paste the `init.sh` script
-5. also required in the boot/ folder is `rootfs` file (note I used [aarch64-rootfs.7z](https://github.com/GarlicOS/buildroot/releases/tag/v2.0.2) under Assets/ )
+5. also required in the created boot/ folder is `rootfs` file (note I used [aarch64-rootfs.7z](https://github.com/GarlicOS/buildroot/releases/tag/v2.0.2) under Assets/ )
+6. Eject sd card when done (if needed `sudo diskutil eject diskX`)
 
 ### 6. – First boot & initial configuration
 
