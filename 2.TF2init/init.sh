@@ -1,0 +1,38 @@
+#!/system/bin/sh
+
+# Garlic OS TF2 script
+
+# Mount the rootfs loopback file
+mount -t f2fs -o loop /boot/boot/rootfs.f2fs /root
+
+# Bind mount the exfat partition
+mount -o bind /boot /root/media
+
+# Iterate the required folders
+for f in dev dev/pts proc sys tmp firmware vendor/firmware lib/firmware lib/modules device-resources $DEVICE_CUSTOM_ROOTFS_MOUNTS
+do
+	# Create a mount point
+	mkdir -p /root/$f
+
+	# And bind mount the folder to it
+	mount -o bind /$f /root/$f
+done
+
+# Setup the shell environment
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+export HOME=/root
+export SHELL=/bin/sh
+
+# Set the CPU governors to performance
+# This is needed for devices with buggy governors (most T310/T618/H700 devices)
+# It's currently enabled for all devices to make debugging easier
+for policy_dir in /sys/devices/system/cpu/cpufreq/policy*
+do
+	if [ -d "$policy_dir" ]
+	then
+		echo performance > "$policy_dir/scaling_governor"
+	fi
+done
+
+# And hand off control to the rootfs
+chroot /root /usr/bin/init
